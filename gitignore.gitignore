@@ -1,0 +1,7 @@
+# Godot 4 - ignorar archivos temporales
+.godot/
+*.import
+*.uid
+export_presets.cfg
+.DS_Store
+Thumbs.db
