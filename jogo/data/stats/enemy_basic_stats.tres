@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://djy0nyxeuot3f"]
+
+[ext_resource type="Script" uid="uid://tff6t7nbco4i" path="res://data/stats/character_stats.gd" id="1_jj3iu"]
+
+[resource]
+script = ExtResource("1_jj3iu")
+max_hp = 30
+attack = 5
+defense = 2
+metadata/_custom_type_script = "uid://tff6t7nbco4i"

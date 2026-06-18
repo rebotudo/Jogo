@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://pjhkwrf7icwd"]
 
 [ext_resource type="Script" uid="uid://bfh2pxd0o2tus" path="res://scripts/player/player.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://8u03nwq8ciq0" path="res://scripts/combat/hurtbox.gd" id="2_dovo2"]
+[ext_resource type="Resource" uid="uid://61fh51nmnnxw" path="res://data/stats/player_stats.tres" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://bhsydamighsmw" path="res://scripts/combat/hitbox.gd" id="4_lvxji"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 radius = 0.4
@@ -9,6 +12,13 @@ height = 1.8
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8afob"]
 radius = 0.4
 height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8afob"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvxji"]
+size = Vector3(1, 1, 1.5)
 
 [node name="Player" type="CharacterBody3D" unique_id=96920756]
 script = ExtResource("1_8afob")
@@ -24,3 +34,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1526747410]
+
+[node name="Hurtbox" type="Area3D" parent="." unique_id=1017071727]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("2_dovo2")
+stats = ExtResource("3_gmlin")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" unique_id=1999844132]
+shape = SubResource("CapsuleShape3D_8afob")
+
+[node name="Hitbox" type="Area3D" parent="." unique_id=373476012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+collision_layer = 4
+collision_mask = 2
+monitoring = false
+script = ExtResource("4_lvxji")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=253108385]
+shape = SubResource("BoxShape3D_lvxji")

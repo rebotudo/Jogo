@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cxyex05rm8rjc"]
 
 [ext_resource type="PackedScene" uid="uid://pjhkwrf7icwd" path="res://scenes/player/player.tscn" id="1_dphjl"]
+[ext_resource type="Resource" uid="uid://61fh51nmnnxw" path="res://data/stats/player_stats.tres" id="2_sl2e5"]
+[ext_resource type="PackedScene" uid="uid://b5sphi43f1lys" path="res://scenes/enemies/enemy.tscn" id="3_1fp7r"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4rhad"]
 size = Vector2(100, 100)
@@ -35,3 +37,8 @@ shape = SubResource("BoxShape3D_dphjl")
 environment = SubResource("Environment_6m72w")
 
 [node name="Player" parent="." unique_id=96920756 instance=ExtResource("1_dphjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+stats = ExtResource("2_sl2e5")
+
+[node name="Enemy" parent="." unique_id=116324856 instance=ExtResource("3_1fp7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5)
