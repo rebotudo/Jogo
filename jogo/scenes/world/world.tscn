@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cxyex05rm8rjc"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4rhad"]
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dphjl"]
+size = Vector3(100, 0.1, 100)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rhad"]
+
+[sub_resource type="Sky" id="Sky_1fp7r"]
+sky_material = SubResource("ProceduralSkyMaterial_4rhad")
+
+[sub_resource type="Environment" id="Environment_6m72w"]
+background_mode = 2
+sky = SubResource("Sky_1fp7r")
+ambient_light_source = 3
+
+[node name="World" type="Node3D" unique_id=1611914983]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1348145417]
+transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 0, 0, 0)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1982279570]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=2007203966]
+mesh = SubResource("PlaneMesh_4rhad")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1915693211]
+shape = SubResource("BoxShape3D_dphjl")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=153603645]
+environment = SubResource("Environment_6m72w")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=315019840]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 5, 10)
