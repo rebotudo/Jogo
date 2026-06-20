@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var spring_arm = $SpringArm3D
 @onready var camera = $SpringArm3D/Camera3D
 @onready var hitbox = $Hitbox
+var is_attacking: bool = false
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sensitivity = 0.003
@@ -40,12 +41,14 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
 
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and not is_attacking:
 		_attack()
 
 	move_and_slide()
 
 func _attack():
+	is_attacking = true
 	hitbox.activate()
 	await get_tree().create_timer(0.2).timeout
 	hitbox.deactivate()
+	is_attacking = false

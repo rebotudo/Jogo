@@ -4,12 +4,9 @@ signal hit_received(damage: int)
 
 @export var stats: CharacterStats
 
-func _ready():
-	area_entered.connect(_on_area_entered)
-
-func _on_area_entered(area: Area3D):
-	if area.has_method("get_damage"):
-		var damage = area.get_damage()
-		if stats:
-			stats.take_damage(damage)
-		hit_received.emit(damage)
+func receive_hit(damage: int):
+	if stats == null:
+		push_warning("Hurtbox sin stats asignado: " + get_parent().name)
+		return
+	stats.take_damage(damage)
+	hit_received.emit(damage)

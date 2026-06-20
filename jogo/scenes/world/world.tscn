@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://pjhkwrf7icwd" path="res://scenes/player/player.tscn" id="1_dphjl"]
 [ext_resource type="Resource" uid="uid://61fh51nmnnxw" path="res://data/stats/player_stats.tres" id="2_sl2e5"]
 [ext_resource type="PackedScene" uid="uid://b5sphi43f1lys" path="res://scenes/enemies/enemy.tscn" id="3_1fp7r"]
+[ext_resource type="Resource" uid="uid://djy0nyxeuot3f" path="res://data/stats/enemy_basic_stats.tres" id="4_6m72w"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4rhad"]
 size = Vector2(100, 100)
@@ -41,4 +42,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 stats = ExtResource("2_sl2e5")
 
 [node name="Enemy" parent="." unique_id=116324856 instance=ExtResource("3_1fp7r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.5)
+stats = ExtResource("4_6m72w")

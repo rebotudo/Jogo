@@ -10,19 +10,22 @@ extends Resource
 @export var experience: int = 0
 @export var exp_to_next_level: int = 100
 
-var current_hp: int
-var current_mp: int
+var current_hp: int = -1
+var current_mp: int = -1
 
 signal hp_changed(new_hp: int, max_hp: int)
 signal mp_changed(new_mp: int, max_mp: int)
 signal died
 signal leveled_up(new_level: int)
 
-func _init():
-	current_hp = max_hp
-	current_mp = max_mp
+func _ensure_initialized():
+	if current_hp == -1:
+		current_hp = max_hp
+	if current_mp == -1:
+		current_mp = max_mp
 
 func take_damage(amount: int):
+	_ensure_initialized()
 	var real_damage = max(amount - defense, 1)
 	current_hp = max(current_hp - real_damage, 0)
 	hp_changed.emit(current_hp, max_hp)
@@ -30,10 +33,12 @@ func take_damage(amount: int):
 		died.emit()
 
 func heal(amount: int):
+	_ensure_initialized()
 	current_hp = min(current_hp + amount, max_hp)
 	hp_changed.emit(current_hp, max_hp)
 
 func use_mp(amount: int) -> bool:
+	_ensure_initialized()
 	if current_mp < amount:
 		return false
 	current_mp -= amount
