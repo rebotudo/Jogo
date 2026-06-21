@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dsmayc2j1ngma" path="res://scripts/enemies/enemy.gd" id="1_38ino"]
 [ext_resource type="Resource" uid="uid://djy0nyxeuot3f" path="res://data/stats/enemy_basic_stats.tres" id="2_8e3ao"]
 [ext_resource type="Script" uid="uid://bhsydamighsmw" path="res://scripts/combat/hitbox.gd" id="4_fcftc"]
+[ext_resource type="PackedScene" uid="uid://b2wtx5187bfuw" path="res://scenes/ui/enemy_health_bar.tscn" id="5_lu5c6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ykcao"]
 radius = 0.4
@@ -55,3 +56,5 @@ script = ExtResource("4_fcftc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=1253991447]
 shape = SubResource("BoxShape3D_lu5c6")
+
+[node name="EnemyHealthBar" parent="." unique_id=1751024733 instance=ExtResource("5_lu5c6")]

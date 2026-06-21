@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var hurtbox = $Hurtbox
 @onready var nav_agent = $NavigationAgent3D
 @onready var hitbox = $Hitbox
+@onready var health_bar = $EnemyHealthBar
 
 @export var speed: float = 3.0
 @export var detection_range: float = 8.0
@@ -22,6 +23,7 @@ func _ready():
 		push_warning("Enemy sin stats asignado en el Hurtbox")
 	else:
 		hurtbox.stats.died.connect(_on_died)
+		health_bar.setup(hurtbox.stats)
 
 	player = get_tree().get_first_node_in_group("player")
 

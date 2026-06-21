@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b2wtx5187bfuw"]
+
+[ext_resource type="Script" uid="uid://vewuivinsoa2" path="res://scripts/ui/enemy_health_bar.gd" id="1_aw7yj"]
+
+[node name="EnemyHealthBar" type="Node3D" unique_id=1751024733]
+script = ExtResource("1_aw7yj")
+
+[node name="HPText" type="Label3D" parent="." unique_id=748150076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+billboard = 1
+no_depth_test = true
+text = "30 / 30"
+font_size = 48
