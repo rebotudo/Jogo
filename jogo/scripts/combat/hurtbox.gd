@@ -4,6 +4,10 @@ signal hit_received(damage: int)
 
 @export var stats: CharacterStats
 
+func _ready():
+	if stats:
+		stats.ensure_initialized()
+
 func receive_hit(damage: int):
 	if stats == null:
 		push_warning("Hurtbox sin stats asignado: " + get_parent().name)

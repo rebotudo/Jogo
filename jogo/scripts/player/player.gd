@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var spring_arm = $SpringArm3D
 @onready var camera = $SpringArm3D/Camera3D
 @onready var hitbox = $Hitbox
+@onready var hurtbox = $Hurtbox
 var is_attacking: bool = false
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -15,6 +16,12 @@ var mouse_sensitivity = 0.003
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	call_deferred("_setup_hud")
+
+func _setup_hud():
+	var hud = get_tree().get_first_node_in_group("hud")
+	if hud:
+		hud.setup(hurtbox.stats)
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
