@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8u03nwq8ciq0" path="res://scripts/combat/hurtbox.gd" id="1_6xk8f"]
 [ext_resource type="Script" uid="uid://dsmayc2j1ngma" path="res://scripts/enemies/enemy.gd" id="1_38ino"]
 [ext_resource type="Resource" uid="uid://djy0nyxeuot3f" path="res://data/stats/enemy_basic_stats.tres" id="2_8e3ao"]
+[ext_resource type="Script" uid="uid://bhsydamighsmw" path="res://scripts/combat/hitbox.gd" id="4_fcftc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ykcao"]
 radius = 0.4
@@ -18,6 +19,9 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_38ino"]
 radius = 0.4
 height = 1.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lu5c6"]
+size = Vector3(1, 1, 1.5)
 
 [node name="Enemy" type="CharacterBody3D" unique_id=116324856]
 script = ExtResource("1_38ino")
@@ -37,3 +41,17 @@ stats = ExtResource("2_8e3ao")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" unique_id=272963030]
 shape = SubResource("CapsuleShape3D_38ino")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=240653848]
+path_desired_distance = 0.5
+path_return_max_radius = 0.4
+
+[node name="Hitbox" type="Area3D" parent="." unique_id=1794451765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+collision_layer = 16
+collision_mask = 2
+monitoring = false
+script = ExtResource("4_fcftc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=1253991447]
+shape = SubResource("BoxShape3D_lu5c6")

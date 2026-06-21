@@ -3,13 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://pjhkwrf7icwd" path="res://scenes/player/player.tscn" id="1_dphjl"]
 [ext_resource type="Resource" uid="uid://61fh51nmnnxw" path="res://data/stats/player_stats.tres" id="2_sl2e5"]
 [ext_resource type="PackedScene" uid="uid://b5sphi43f1lys" path="res://scenes/enemies/enemy.tscn" id="3_1fp7r"]
-[ext_resource type="Resource" uid="uid://djy0nyxeuot3f" path="res://data/stats/enemy_basic_stats.tres" id="4_6m72w"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_4rhad"]
-size = Vector2(100, 100)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dphjl"]
-size = Vector3(100, 0.1, 100)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rhad"]
 
@@ -21,21 +14,35 @@ background_mode = 2
 sky = SubResource("Sky_1fp7r")
 ambient_light_source = 3
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_1fp7r"]
+vertices = PackedVector3Array(-49.5, 0.5, -49.5, -49.5, 0.5, 49.5, 49.5, 0.5, 49.5, 49.5, 0.5, -49.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+filter_baking_aabb = AABB(-50, -5, -50, 100, 10, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4rhad"]
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dphjl"]
+size = Vector3(100, 0.1, 100)
+
 [node name="World" type="Node3D" unique_id=1611914983]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1348145417]
 transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 0, 0, 0)
 
-[node name="Floor" type="StaticBody3D" parent="." unique_id=1982279570]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=2007203966]
-mesh = SubResource("PlaneMesh_4rhad")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1915693211]
-shape = SubResource("BoxShape3D_dphjl")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=153603645]
 environment = SubResource("Environment_6m72w")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=4297577]
+navigation_mesh = SubResource("NavigationMesh_1fp7r")
+
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1982279570]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor" unique_id=2007203966]
+mesh = SubResource("PlaneMesh_4rhad")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor" unique_id=1915693211]
+shape = SubResource("BoxShape3D_dphjl")
 
 [node name="Player" parent="." unique_id=96920756 instance=ExtResource("1_dphjl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -43,4 +50,3 @@ stats = ExtResource("2_sl2e5")
 
 [node name="Enemy" parent="." unique_id=116324856 instance=ExtResource("3_1fp7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.5)
-stats = ExtResource("4_6m72w")
