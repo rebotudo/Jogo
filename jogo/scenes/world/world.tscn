@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://cxyex05rm8rjc"]
 
-[ext_resource type="PackedScene" uid="uid://pjhkwrf7icwd" path="res://scenes/player/player.tscn" id="1_dphjl"]
-[ext_resource type="Resource" uid="uid://61fh51nmnnxw" path="res://data/stats/player_stats.tres" id="2_sl2e5"]
-[ext_resource type="PackedScene" uid="uid://b5sphi43f1lys" path="res://scenes/enemies/enemy.tscn" id="3_1fp7r"]
+[ext_resource type="Script" path="res://scripts/world/world.gd" id="5_world"]
 [ext_resource type="PackedScene" uid="uid://g1mfwh5ym30i" path="res://scenes/ui/hud.tscn" id="4_6m72w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rhad"]
@@ -27,6 +25,7 @@ size = Vector2(100, 100)
 size = Vector3(100, 0.1, 100)
 
 [node name="World" type="Node3D" unique_id=1611914983]
+script = ExtResource("5_world")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1348145417]
 transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 0, 0, 0)
@@ -45,11 +44,10 @@ mesh = SubResource("PlaneMesh_4rhad")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor" unique_id=1915693211]
 shape = SubResource("BoxShape3D_dphjl")
 
-[node name="Player" parent="." unique_id=96920756 instance=ExtResource("1_dphjl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-stats = ExtResource("2_sl2e5")
+[node name="Players" type="Node3D" parent="."]
 
-[node name="Enemy" parent="." unique_id=116324856 instance=ExtResource("3_1fp7r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.5)
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Loot" type="Node3D" parent="."]
 
 [node name="HUD" parent="." unique_id=1291544482 groups=["hud"] instance=ExtResource("4_6m72w")]

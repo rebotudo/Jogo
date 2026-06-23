@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dt2sm2msyxa11"]
+
+[ext_resource type="Script" uid="uid://d2b7sti1d0s5f" path="res://data/items/item_data.gd" id="1_jwq6a"]
+
+[resource]
+script = ExtResource("1_jwq6a")
+id = "mosnter_fang"
+name = "Colmillo de Bestia"
+description = "Un colmillo afilado, útil para artesanía"
+metadata/_custom_type_script = "uid://d2b7sti1d0s5f"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LootEntry" format=3 uid="uid://hu6jehokcnym"]
+
+[ext_resource type="Script" uid="uid://bc6aomtwv3fvy" path="res://data/items/loot_entry.gd" id="1_b4gy3"]
+[ext_resource type="Resource" uid="uid://dt2sm2msyxa11" path="res://data/items/monster_fang.tres" id="1_txg24"]
+
+[resource]
+script = ExtResource("1_b4gy3")
+item = ExtResource("1_txg24")
+max_amount = 3
+metadata/_custom_type_script = "uid://bc6aomtwv3fvy"

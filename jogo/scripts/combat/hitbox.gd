@@ -6,7 +6,11 @@ var already_hit: Array = []
 func get_damage() -> int:
 	return damage
 
-func activate():
+func activate(dmg: int = -1):
+	# Si el atacante pasa un daño (p.ej. su stat de ataque), lo usamos. Si no,
+	# se queda el valor por defecto del hitbox.
+	if dmg >= 0:
+		damage = dmg
 	already_hit.clear()
 	monitoring = true
 	await get_tree().process_frame

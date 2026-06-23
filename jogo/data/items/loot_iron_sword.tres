@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LootEntry" format=3 uid="uid://cegdlr7pji07d"]
+
+[ext_resource type="Resource" uid="uid://dspbigsaf2db2" path="res://data/items/iron_sword.tres" id="1_scgwq"]
+[ext_resource type="Script" uid="uid://bc6aomtwv3fvy" path="res://data/items/loot_entry.gd" id="1_voitn"]
+
+[resource]
+script = ExtResource("1_voitn")
+item = ExtResource("1_scgwq")
+drop_chance = 0.1
+metadata/_custom_type_script = "uid://bc6aomtwv3fvy"

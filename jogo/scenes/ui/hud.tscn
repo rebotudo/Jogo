@@ -31,3 +31,108 @@ grow_vertical = 2
 text = "100 / 100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DeathLabel" type="Label" parent="." unique_id=448812733]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 48
+text = "HAS MUERTO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PickupLabel" type="Label" parent="." unique_id=448812734]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 22
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InventoryPanel" type="Panel" parent="." unique_id=448812735]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -260.0
+offset_right = 240.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="InventoryPanel/Margin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="InventoryPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Inventario"
+
+[node name="StatsLabel" type="Label" parent="InventoryPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.9, 1, 1)
+text = "Ataque: -    Defensa: -"
+
+[node name="EquippedTitle" type="Label" parent="InventoryPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Equipado"
+
+[node name="EquippedList" type="VBoxContainer" parent="InventoryPanel/Margin/VBox"]
+layout_mode = 2
+
+[node name="Sep" type="HSeparator" parent="InventoryPanel/Margin/VBox"]
+layout_mode = 2
+
+[node name="BagTitle" type="Label" parent="InventoryPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Mochila"
+
+[node name="Scroll" type="ScrollContainer" parent="InventoryPanel/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemsList" type="VBoxContainer" parent="InventoryPanel/Margin/VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Hint" type="Label" parent="InventoryPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Pulsa I para cerrar"
