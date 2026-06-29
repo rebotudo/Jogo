@@ -23,7 +23,15 @@ func _try_hit(area: Area3D):
 		return
 	if area.has_method("receive_hit"):
 		already_hit.append(area)
-		area.receive_hit(damage)
+		area.receive_hit(damage, _attacker_id())
 
 func deactivate():
 	monitoring = false
+
+# Id de red del jugador atacante (el dueño de este hitbox), o 0 si no es jugador
+# (p.ej. el hitbox de un enemigo). Sirve para saber quien mata y reparte recompensas.
+func _attacker_id() -> int:
+	var o := get_parent()
+	if o and o.is_in_group("player"):
+		return o.name.to_int()
+	return 0

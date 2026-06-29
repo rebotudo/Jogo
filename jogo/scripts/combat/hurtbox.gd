@@ -12,12 +12,12 @@ func _ready():
 		stats = stats.duplicate(true)
 		stats.ensure_initialized()
 
-func receive_hit(damage: int):
+func receive_hit(damage: int, attacker_id: int = 0):
 	if stats == null:
 		push_warning("Hurtbox sin stats asignado: " + get_parent().name)
 		return
 	# El daño NO se aplica aqui. Se delega al CombatManager, que lo resuelve en
 	# el servidor (modelo autoritativo). get_parent() es la entidad (Player/Enemy),
-	# que implementa server_take_damage().
+	# que implementa server_take_damage(). attacker_id = quien golpea (para EXP/loot).
 	hit_received.emit(damage)
-	CombatManager.report_hit(get_parent(), damage)
+	CombatManager.report_hit(get_parent(), damage, attacker_id)

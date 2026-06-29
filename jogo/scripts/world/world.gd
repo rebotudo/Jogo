@@ -15,9 +15,16 @@ extends Node3D
 @onready var players: Node = $Players
 @onready var enemies: Node = $Enemies
 @onready var loot: Node = $Loot
+@onready var minions: Node = $Minions
+
+
+const MapDecorator = preload("res://scripts/world/map_decorator.gd")
 
 
 func _ready() -> void:
 	NetworkManager.register_world(players)
 	EnemyManager.register_world(enemies)
 	LootManager.register_world(loot)
+	MinionManager.register_world(minions)
+	# Decorado procedural del mapa (cesped, camino, arboles, arena del jefe).
+	add_child(MapDecorator.new())

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Script" uid="uid://d2b7sti1d0s5f" path="res://data/items/item_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "leather_helm"
+name = "Capucha de Cuero"
+description = "Capucha ligera de cuero curtido."
+type = 2
+rarity = 0
+stack_max = 1
+equip_slot = 2
+attack_bonus = 0
+defense_bonus = 2

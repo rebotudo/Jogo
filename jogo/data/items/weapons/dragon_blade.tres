@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Script" uid="uid://d2b7sti1d0s5f" path="res://data/items/item_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "dragon_blade"
+name = "Hoja del Dragón"
+description = "Espada legendaria templada en fuego de dragón."
+type = 1
+rarity = 3
+stack_max = 1
+equip_slot = 1
+weapon_type = 1
+attack_bonus = 28
+defense_bonus = 2

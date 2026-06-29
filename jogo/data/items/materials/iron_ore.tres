@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Script" uid="uid://d2b7sti1d0s5f" path="res://data/items/item_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "iron_ore"
+name = "Mineral de Hierro"
+description = "Roca con vetas de hierro para fundir."
+type = 0
+rarity = 0
+stack_max = 99
+equip_slot = 0
+attack_bonus = 0
+defense_bonus = 0

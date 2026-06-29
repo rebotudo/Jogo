@@ -91,6 +91,12 @@ func _on_peer_disconnected(id: int) -> void:
 
 
 func _random_spawn() -> Vector3:
+	# Spawn inicial en una ciudad segura (el jugador se reubicara en SU ciudad de
+	# inicio al aplicar el personaje). Nunca en el centro letal del mundo.
+	var cities: Array = Zones.start_cities()
+	if not cities.is_empty():
+		var c: Vector2 = cities[0]["center"]
+		return Vector3(c.x + randf_range(-5.0, 5.0), 1.0, c.y + randf_range(-5.0, 5.0))
 	return Vector3(randf_range(-5.0, 5.0), 1.0, randf_range(-5.0, 5.0))
 
 

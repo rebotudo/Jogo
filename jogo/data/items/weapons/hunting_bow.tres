@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Script" uid="uid://d2b7sti1d0s5f" path="res://data/items/item_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "hunting_bow"
+name = "Arco de Caza"
+description = "Arco sencillo para tiro a distancia."
+type = 1
+rarity = 0
+stack_max = 1
+equip_slot = 1
+weapon_type = 6
+attack_bonus = 7
+defense_bonus = 0

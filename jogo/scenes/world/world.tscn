@@ -14,15 +14,15 @@ sky = SubResource("Sky_1fp7r")
 ambient_light_source = 3
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_1fp7r"]
-vertices = PackedVector3Array(-49.5, 0.5, -49.5, -49.5, 0.5, 49.5, 49.5, 0.5, 49.5, 49.5, 0.5, -49.5)
+vertices = PackedVector3Array(-359.5, 0.5, -359.5, -359.5, 0.5, 359.5, 359.5, 0.5, 359.5, 359.5, 0.5, -359.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
-filter_baking_aabb = AABB(-50, -5, -50, 100, 10, 100)
+filter_baking_aabb = AABB(-360, -5, -360, 720, 10, 720)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4rhad"]
-size = Vector2(100, 100)
+size = Vector2(720, 720)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dphjl"]
-size = Vector3(100, 0.1, 100)
+size = Vector3(720, 0.1, 720)
 
 [node name="World" type="Node3D" unique_id=1611914983]
 script = ExtResource("5_world")
@@ -49,5 +49,7 @@ shape = SubResource("BoxShape3D_dphjl")
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="Loot" type="Node3D" parent="."]
+
+[node name="Minions" type="Node3D" parent="."]
 
 [node name="HUD" parent="." unique_id=1291544482 groups=["hud"] instance=ExtResource("4_6m72w")]

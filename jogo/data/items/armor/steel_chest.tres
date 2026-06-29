@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3]
+
+[ext_resource type="Script" uid="uid://d2b7sti1d0s5f" path="res://data/items/item_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "steel_chest"
+name = "Peto de Acero"
+description = "Peto de acero de alta calidad."
+type = 2
+rarity = 2
+stack_max = 1
+equip_slot = 3
+attack_bonus = 0
+defense_bonus = 12
